@@ -1,0 +1,24 @@
+En Python, las funciones open() y close() se utilizan para trabajar con archivos. open() se usa para abrir un archivo, y close() para cerrarlo. El modo de apertura (ej. lectura, escritura) se especifica como un argumento de open(). Se recomienda usar with open() para asegurar que el archivo se cierre automáticamente, incluso en caso de errores. 
+
+------------------------------------------
+# Ejemplo: abrir un archivo para lectura
+try:
+    f = open("mi_archivo.txt", "r")
+    contenido = f.read()
+    print(contenido)
+except FileNotFoundError:
+    print("El archivo no existe.")
+finally:
+    if 'f' in locals() and not f.closed:
+        f.close()
+------------------------------------------
+
+Modos comunes:
+"r": Abre el archivo para lectura (el cursor está al principio). 
+"w": Abre el archivo para escritura (trunca o crea el archivo). El cursor está al principio. 
+"a": Abre el archivo para agregar datos (cursor al final). 
+"r+": Abre el archivo para lectura y escritura. 
+"w+": Abre el archivo para lectura y escritura (trunca o crea el archivo). 
+"a+": Abre el archivo para lectura y escritura (cursor al final). 
+Devuelve un objeto archivo que se utiliza para interactuar con el archivo. 
+
